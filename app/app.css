@@ -1,16 +1,256 @@
 @import "tailwindcss";
+@plugin "daisyui";
 
+/*** Theme ***/
 @theme {
-  --font-sans:
-    "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol", "Noto Color Emoji";
+  --color-primary-color: var(--primary-color);
+  --color-heading-color: var(--heading-color);
+  --color-text-color: var(--text-color);
+  --color-text-black: var(--text-black);
+  --color-border-color: var(--border-color);
+  --color-bg-color: var(--bg-color);
+  --color-accent-color: var(--accent-color);
+  --font-heading: "Bebas Neue", sans-serif;
+  --font-body: "DM Sans", sans-serif;
 }
 
-html,
-body {
-  @apply bg-white dark:bg-gray-950;
+/* Desktop */
+:root {
+  --content-width: 1140px;
+  --gap: 20px;
+  --column-padding: 10px;
 
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
+  --primary-color: #e8c14b;
+  --heading-color: #ffffff;
+  --text-color: #888888;
+  --text-black: #0a0a0f;
+  --border-color: rgba(255, 255, 255, 0.07);
+  --bg-body: #0a0a0f;
+  --bg-color: #111118;
+  --accent-color: #e8c14b;
+
+  --size-h1: 48px;
+  --size-h2: 36px;
+  --size-h3: 24px;
+  --size-h4: 20px;
+  --size-h5: 18px;
+  --size-h6: 16px;
+  --size-text: 14px;
+  --size-btn: 14px;
+
+  --section-padding-top: 70px;
+  --section-padding-bottom: 70px;
+}
+
+/* Tablet */
+@media (max-width: 1023px) {
+  :root {
+    --size-h1: 36px;
+    --size-h2: 30px;
+    --size-h3: 20px;
+    --size-h4: 18px;
+    --size-h5: 16px;
+    --size-h6: 14px;
+    --size-text: 13px;
+    --size-btn: 13px;
+
+    --section-padding-top: 45px;
+    --section-padding-bottom: 45px;
   }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  :root {
+    --size-h1: 30px;
+    --size-h2: 24px;
+    --size-h3: 18px;
+    --size-h4: 16px;
+    --size-h5: 14px;
+    --size-h6: 14px;
+    --size-text: 12px;
+    --size-btn: 12px;
+
+    --section-padding-top: 30px;
+    --section-padding-bottom: 30px;
+  }
+}
+
+/* BASE STYLES ========================================================= */
+* {
+  transition: all 0.2s;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--bg-body);
+  font-family: var(--font-body);
+}
+
+img {
+  width: 100%;
+}
+a {
+  text-decoration: none;
+}
+ul {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+}
+
+h1.heading {
+  font-size: var(--size-h1);
+}
+h2.heading {
+  font-size: var(--size-h2);
+}
+h3.heading {
+  font-size: var(--size-h3);
+}
+h4.heading {
+  font-size: var(--size-h4);
+}
+h5.heading {
+  font-size: var(--size-h5);
+}
+h6.heading {
+  font-size: var(--size-h6);
+}
+
+/* 4. TAILWIND UTILITIES ================================================== */
+
+@utility heading {
+  color: var(--heading-color);
+  line-height: 1.4em;
+  margin: 0;
+  font-weight: 700;
+}
+
+@utility text {
+  color: var(--text-color);
+  font-size: var(--size-text);
+  line-height: 1.6em;
+  margin: 0;
+}
+
+@utility text-gap {
+  margin-bottom: 15px;
+}
+
+@utility section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--gap);
+  width: 100%;
+}
+
+@utility section-gap {
+  padding-top: var(--section-padding-top);
+  padding-bottom: var(--section-padding-bottom);
+}
+
+@utility row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: var(--content-width);
+
+  @media (max-width: 767px) {
+    &:not(.exclude) {
+      flex-direction: column;
+    }
+  }
+}
+
+@utility row-full {
+  max-width: 100%;
+}
+
+@utility column {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: var(--content-width);
+  gap: var(--gap);
+  padding: var(--column-padding);
+}
+
+button {
+  cursor: pointer;
+}
+
+@utility btn-primary {
+  background: var(--accent-color);
+  color: var(--text-black);
+  border: none;
+  padding: 12px 28px;
+  font-weight: 700;
+  font-size: var(--size-btn);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 3px;
+
+  &:hover {
+    box-shadow: 0 8px 24px rgba(232, 193, 75, 0.3);
+  }
+}
+
+@utility btn-secondary {
+  background: transparent;
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  padding: 12px 28px;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 3px;
+
+  &:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+  }
+}
+
+.btn-danger {
+  background: var(--red);
+  color: #fff;
+  border: none;
+  padding: 8px 18px;
+  font-weight: 600;
+  font-size: 13px;
+  border-radius: 3px;
+  transition: all 0.2s;
+}
+.btn-danger:hover {
+  background: #ff2020;
+}
+.btn-blue {
+  background: var(--blue);
+  color: #fff;
+  border: none;
+  padding: 8px 18px;
+  font-weight: 600;
+  font-size: 13px;
+  border-radius: 3px;
+  transition: all 0.2s;
+}
+.btn-blue:hover {
+  background: #2d7ce8;
+}
+.btn-sm {
+  padding: 7px 16px !important;
+  font-size: 12px !important;
 }
