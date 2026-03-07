@@ -26,14 +26,36 @@ export default tseslint.config(
       ...react.configs["jsx-runtime"].rules,
       ...reactHooks.configs.recommended.rules,
       "react/jsx-no-target-blank": "off",
+      "no-console": ["warn", { allow: ["warn", "error"] }],
+
+      // 1. Explicitly add the TypeScript unused variables rule
+      "@typescript-eslint/no-unused-vars": [
+        "error", // or "warn" if you prefer
+        {
+          argsIgnorePattern: "^_",
+          varsIgnorePattern: "^_",
+          caughtErrorsIgnorePattern: "^_",
+        },
+      ],
+
+      // 2. Fixed React Refresh rule (Merged into a single options object)
       "react-refresh/only-export-components": [
         "warn",
         {
           allowConstantExport: true,
-          allowExportNames: ["loader", "action", "meta", "links", "headers"],
+          allowExportNames: [
+            "loader",
+            "action",
+            "meta",
+            "links",
+            "headers",
+            "clientLoader",
+            "clientAction",
+            "HydrateFallback",
+            "ErrorBoundary",
+          ],
         },
       ],
-      "no-console": ["warn", { allow: ["warn", "error"] }],
     },
   },
   prettier,

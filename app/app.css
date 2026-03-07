@@ -9,6 +9,7 @@
   --color-text-black: var(--text-black);
   --color-border-color: var(--border-color);
   --color-bg-color: var(--bg-color);
+  --color-bg-body: var(--bg-body);
   --color-accent-color: var(--accent-color);
   --font-heading: "Bebas Neue", sans-serif;
   --font-body: "DM Sans", sans-serif;
@@ -34,11 +35,11 @@
   --size-h3: 24px;
   --size-h4: 20px;
   --size-h5: 18px;
-  --size-h6: 16px;
-  --size-text: 14px;
+  --size-h6: 12px;
+  --size-text: 16px;
   --size-btn: 14px;
 
-  --section-padding-top: 70px;
+  --section-padding-top: 65px;
   --section-padding-bottom: 70px;
 }
 
@@ -50,11 +51,11 @@
     --size-h3: 20px;
     --size-h4: 18px;
     --size-h5: 16px;
-    --size-h6: 14px;
-    --size-text: 13px;
+    --size-h6: 12px;
+    --size-text: 15px;
     --size-btn: 13px;
 
-    --section-padding-top: 45px;
+    --section-padding-top: 40px;
     --section-padding-bottom: 45px;
   }
 }
@@ -67,11 +68,11 @@
     --size-h3: 18px;
     --size-h4: 16px;
     --size-h5: 14px;
-    --size-h6: 14px;
-    --size-text: 12px;
+    --size-h6: 12px;
+    --size-text: 14px;
     --size-btn: 12px;
 
-    --section-padding-top: 30px;
+    --section-padding-top: 25px;
     --section-padding-bottom: 30px;
   }
 }
@@ -93,9 +94,7 @@ body {
 img {
   width: 100%;
 }
-a {
-  text-decoration: none;
-}
+
 ul {
   margin: 0;
 }
@@ -107,6 +106,11 @@ h4,
 h5,
 h6 {
   font-family: var(--font-heading);
+}
+
+.heading {
+  letter-spacing: 0.04em;
+  line-height: 1.2em;
 }
 
 h1.heading {
@@ -126,6 +130,14 @@ h5.heading {
 }
 h6.heading {
   font-size: var(--size-h6);
+}
+
+h6.sub-heading {
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  font-size: 12px;
 }
 
 /* 4. TAILWIND UTILITIES ================================================== */
@@ -253,4 +265,57 @@ button {
 .btn-sm {
   padding: 7px 16px !important;
   font-size: 12px !important;
+}
+
+/* FORM STYLES ========================================================= */
+@utility form-container {
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 35px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+@utility form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+@utility form-control {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+
+  &.half {
+    width: calc(50% - 16px);
+  }
+}
+
+@utility label {
+  color: var(--text-color);
+  font-size: 13px;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 3px;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+@utility input-field {
+  background: #1a1a24;
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  padding: 11px 16px;
+  font-size: 14px;
+  color: var(--text-color);
+  width: 100%;
+
+  &:focus {
+    outline: none;
+    border-color: var(--accent-color);
+  }
 }

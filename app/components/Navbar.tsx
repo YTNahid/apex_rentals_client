@@ -1,7 +1,24 @@
 import { NavLink } from "react-router";
+import { toast } from "react-toastify";
+import { useAuth } from "~/hooks/useAuth";
+import api from "~/services/api";
 
 const Navbar = () => {
-  const user = true;
+  const { user, userSignOut } = useAuth();
+
+  // console.log(user);
+
+  const handleSignOut = async () => {
+    try {
+      await userSignOut();
+
+      await api.post("/auth/logout");
+      toast.info("Logout Successfull");
+    } catch (error) {
+      console.error(error);
+      toast.info("Something went wrong when logging out");
+    }
+  };
 
   const navStyle = ({ isActive }: { isActive: boolean }) =>
     isActive
@@ -42,6 +59,7 @@ const Navbar = () => {
               href="#"
               className="bg-accent-color 
           text-text-black rounded-[3px] px-3 py-1 pointer border border-accent-color hover:bg-transparent hover:text-accent-color"
+              onClick={handleSignOut}
             >
               Logout
             </a>
@@ -65,10 +83,10 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="section border-b border-border-color sticky top-0 z-50">
+      <header className="section border-b border-border-color sticky top-0 z-50 bg-bg-body">
         <div className="row align-center">
           <div className="column w-1/4">
-            <NavLink to="/" className="logo font-heading">
+            <NavLink to="/" className="logo font-heading self-start">
               <span className="text-accent-color text-4xl">APEX</span>
               <span className="text-white text-2xl">RENTALS</span>
             </NavLink>
