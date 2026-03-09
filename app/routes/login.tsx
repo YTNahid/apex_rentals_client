@@ -7,6 +7,7 @@ import LoadingSpinnerSm from "~/components/LoadingSpinnerSm";
 import { useAuth } from "~/hooks/useAuth";
 import api from "~/services/api";
 import { requireAuth } from "~/utils/auth.helper";
+import { getErrorMessage } from "~/utils/getErrorMessage";
 
 export function meta() {
   return [{ title: "Login" }];
@@ -39,19 +40,14 @@ export default function Login() {
       const user = await userSignInWithProvider(googleProvider);
       const userData = { id: user.user.uid, email: user.user.email };
 
-      try {
-        await api.post("/auth/jwt", userData);
-      } catch (error) {
-        console.error(error);
-        toast.error("Something went wrong with jwt");
-        return;
-      }
+      await api.post("/auth/jwt", userData);
 
       toast.success("Login Successfull");
       navigate(location.state?.from || "/", { replace: true });
     } catch (error) {
-      console.error("Failed to login with google", error);
-      toast.error("Failed to sign in with google");
+      const message = getErrorMessage(error);
+      console.error(message, error);
+      toast.error(message);
     } finally {
       setIsLoading(false);
     }
@@ -74,19 +70,14 @@ export default function Login() {
       const user = await userSignIn(email, password);
       const userData = { id: user.user.uid, email: user.user.email };
 
-      try {
-        await api.post("/auth/jwt", userData);
-      } catch (error) {
-        console.error(error);
-        toast.error("Something went wrong with jwt");
-        return;
-      }
+      await api.post("/auth/jwt", userData);
 
       toast.success("Login Successfull");
       navigate(location.state?.from || "/", { replace: true });
     } catch (error) {
-      console.error("Invalid email or password", error);
-      toast.error("Invalid email or password");
+      const message = getErrorMessage(error);
+      console.error(message, error);
+      toast.error(message);
     } finally {
       setIsLoading(false);
     }

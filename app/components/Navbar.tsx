@@ -2,6 +2,7 @@ import { NavLink } from "react-router";
 import { toast } from "react-toastify";
 import { useAuth } from "~/hooks/useAuth";
 import api from "~/services/api";
+import { getErrorMessage } from "~/utils/getErrorMessage";
 
 const Navbar = () => {
   const { user, userSignOut } = useAuth();
@@ -15,8 +16,9 @@ const Navbar = () => {
       await api.post("/auth/logout");
       toast.info("Logout Successfull");
     } catch (error) {
-      console.error(error);
-      toast.info("Something went wrong when logging out");
+      const message = getErrorMessage(error);
+      console.error(message, error);
+      toast.error(message);
     }
   };
 
