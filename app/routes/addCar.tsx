@@ -51,14 +51,8 @@ export default function AddCar() {
       <section className="section section-gap">
         <div className="row">
           <div className="column">
-            <h6 className="sub-heading text-accent-color text-center">Login</h6>
-            <h2 className="heading text-center">
-              Welcome to <br></br>{" "}
-              <span className="text-6xl">
-                <span className="text-accent-color">APEX</span>RENTALS
-              </span>
-            </h2>
-            <p className="text text-center">Login to your account</p>
+            <h6 className="sub-heading text-accent-color text-center -mb-3">For Rental</h6>
+            <h2 className="heading text-center">Add Car</h2>
 
             {/* Login Form */}
             <div className="form-container justify-center max-w-187.5 self-center">
@@ -66,7 +60,7 @@ export default function AddCar() {
                 {/* Car Model */}
                 <div className="form-control half">
                   <label htmlFor="carModel" className="label">
-                    Car Model
+                    Car Model*
                   </label>
                   <input
                     type="text"
@@ -80,7 +74,7 @@ export default function AddCar() {
                 {/* Daily Rental Price */}
                 <div className="form-control half">
                   <label htmlFor="dailyRentalPrice " className="label">
-                    Daily Rental Price (৳)
+                    Daily Rental Price (৳)*
                   </label>
                   <input
                     type="number"
@@ -94,7 +88,7 @@ export default function AddCar() {
                 {/* Location */}
                 <div className="form-control half">
                   <label htmlFor="location" className="label">
-                    Location
+                    Location*
                   </label>
                   <input
                     type="text"
@@ -108,7 +102,7 @@ export default function AddCar() {
                 {/* Vehicle Registration No */}
                 <div className="form-control half">
                   <label htmlFor="vehicleRegistration" className="label">
-                    Vehicle Registration No
+                    Vehicle Registration No*
                   </label>
                   <input
                     type="text"
@@ -122,7 +116,7 @@ export default function AddCar() {
                 {/* Availability */}
                 <div className="form-control half">
                   <label htmlFor="availability" className="label">
-                    Availability
+                    Availability*
                   </label>
                   <select
                     name="availability"
@@ -141,7 +135,7 @@ export default function AddCar() {
                 {/* Image URL */}
                 <div className="form-control half">
                   <label htmlFor="imageURL" className="label">
-                    Image URL
+                    Image URL*
                   </label>
                   <input
                     type="text"
@@ -155,7 +149,7 @@ export default function AddCar() {
                 {/* Features */}
                 <div className="form-control">
                   <label htmlFor="features" className="label">
-                    Features
+                    Features*
                   </label>
                   <input
                     type="text"
@@ -169,7 +163,7 @@ export default function AddCar() {
                 {/* Description*/}
                 <div className="form-control">
                   <label htmlFor="description" className="label">
-                    Description
+                    Description*
                   </label>
                   <input
                     type="text"

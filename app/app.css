@@ -31,7 +31,7 @@
   --accent-color: #e8c14b;
 
   --size-h1: 48px;
-  --size-h2: 36px;
+  --size-h2: 72px;
   --size-h3: 24px;
   --size-h4: 20px;
   --size-h5: 18px;
@@ -41,15 +41,17 @@
 
   --section-padding-top: 65px;
   --section-padding-bottom: 70px;
+
+  --form-control-half: calc(50% - 8px);
 }
 
 /* Tablet */
 @media (max-width: 1023px) {
   :root {
     --size-h1: 36px;
-    --size-h2: 30px;
-    --size-h3: 20px;
-    --size-h4: 18px;
+    --size-h2: 55px;
+    --size-h3: 22px;
+    --size-h4: 19px;
     --size-h5: 16px;
     --size-h6: 12px;
     --size-text: 15px;
@@ -64,9 +66,9 @@
 @media (max-width: 767px) {
   :root {
     --size-h1: 30px;
-    --size-h2: 24px;
-    --size-h3: 18px;
-    --size-h4: 16px;
+    --size-h2: 36px;
+    --size-h3: 20px;
+    --size-h4: 18px;
     --size-h5: 14px;
     --size-h6: 12px;
     --size-text: 14px;
@@ -74,6 +76,8 @@
 
     --section-padding-top: 25px;
     --section-padding-bottom: 30px;
+
+    --form-control-half: 100%;
   }
 }
 
@@ -86,13 +90,8 @@
 
 body {
   margin: 0;
-  overflow-x: hidden;
   background: var(--bg-body);
   font-family: var(--font-body);
-}
-
-img {
-  width: 100%;
 }
 
 ul {
@@ -110,26 +109,31 @@ h6 {
 
 .heading {
   letter-spacing: 0.04em;
-  line-height: 1.2em;
 }
 
 h1.heading {
   font-size: var(--size-h1);
+  line-height: 1em;
 }
 h2.heading {
   font-size: var(--size-h2);
+  line-height: 1em;
 }
 h3.heading {
   font-size: var(--size-h3);
+  line-height: 1.2em;
 }
 h4.heading {
   font-size: var(--size-h4);
+  line-height: 1.2em;
 }
 h5.heading {
   font-size: var(--size-h5);
+  line-height: 1.4em;
 }
 h6.heading {
   font-size: var(--size-h6);
+  line-height: 1.4em;
 }
 
 h6.sub-heading {
@@ -272,7 +276,7 @@ button {
   background: var(--bg-color);
   border: 1px solid var(--border-color);
   border-radius: 12px;
-  padding: 35px;
+  padding: clamp(25px, 5vw, 35px);
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
@@ -291,7 +295,7 @@ button {
   width: 100%;
 
   &.half {
-    width: calc(50% - 8px);
+    width: var(--form-control-half);
   }
 }
 

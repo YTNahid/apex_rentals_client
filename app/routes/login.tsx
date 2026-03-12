@@ -89,9 +89,9 @@ export default function Login() {
         <div className="row">
           <div className="column">
             <h6 className="sub-heading text-accent-color text-center">Login</h6>
-            <h2 className="heading text-center">
+            <h2 className="text-center text-2xl md:text-3xl lg:text-4xl">
               Welcome to <br></br>{" "}
-              <span className="text-6xl">
+              <span className="text-4xl md:text-5xl lg:text-6xl">
                 <span className="text-accent-color">APEX</span>RENTALS
               </span>
             </h2>
@@ -103,7 +103,7 @@ export default function Login() {
                 {/* Email Address */}
                 <div className="form-control">
                   <label htmlFor="email" className="label">
-                    Email Address
+                    Email Address*
                   </label>
                   <input
                     type="email"
@@ -111,12 +111,13 @@ export default function Login() {
                     id="email"
                     className="input-field"
                     placeholder="you@example.com"
+                    required
                   />
                 </div>
                 {/* Password */}
                 <div className="form-control">
                   <label htmlFor="password" className="label">
-                    Password
+                    Password*
                   </label>
                   <div className="relative w-full">
                     <input
@@ -125,6 +126,7 @@ export default function Login() {
                       name="password"
                       className="input-field"
                       placeholder="********"
+                      required
                     ></input>
                     <span
                       className="text-text-color cursor-pointer absolute top-[50%] translate-y-[-50%] right-3 text-[18px]"

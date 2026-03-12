@@ -87,9 +87,9 @@ export default function Signup() {
         <div className="row">
           <div className="column">
             <h6 className="sub-heading text-accent-color text-center">Signup</h6>
-            <h2 className="heading text-center">
+            <h2 className="text-center text-2xl md:text-3xl lg:text-4xl">
               Welcome to <br></br>{" "}
-              <span className="text-6xl">
+              <span className="text-4xl md:text-5xl lg:text-6xl">
                 <span className="text-accent-color">APEX</span>RENTALS
               </span>
             </h2>
@@ -101,7 +101,7 @@ export default function Signup() {
                 {/* name */}
                 <div className="form-control">
                   <label htmlFor="username" className="label">
-                    Name
+                    Name*
                   </label>
                   <input
                     type="text"
@@ -115,7 +115,7 @@ export default function Signup() {
                 {/* Email Address */}
                 <div className="form-control">
                   <label htmlFor="email" className="label">
-                    Email Address
+                    Email Address*
                   </label>
                   <input
                     type="email"
@@ -129,7 +129,7 @@ export default function Signup() {
                 {/* Password */}
                 <div className="form-control">
                   <label htmlFor="password" className="label">
-                    Password
+                    Password*
                   </label>
                   <div className="relative w-full">
                     <input
@@ -152,7 +152,7 @@ export default function Signup() {
                 {/* Image */}
                 <div className="form-control">
                   <label htmlFor="image" className="label">
-                    Image URL
+                    Image URL*
                   </label>
                   <input
                     type="text"

@@ -9,4 +9,5 @@ export default [
   route("car-details/:id", "routes/carDetails.tsx"),
   route("my-cars", "routes/myCars.tsx"),
   route("my-bookings", "routes/myBookings.tsx"),
+  route("*", "routes/errorPage.tsx")
 ] satisfies RouteConfig;
